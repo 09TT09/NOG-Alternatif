@@ -1,0 +1,16 @@
+{
+  "name": "next-office-generator",
+  "version": "1.8.7",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "setup-next-office-generator": "./bin/setup-next-office-generator.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.0"
+  }
+}
