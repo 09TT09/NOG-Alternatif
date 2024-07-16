@@ -64,3 +64,16 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+model DummyModel {
+  id            String    @id @default(cuid())
+  name          String?
+  age           Int
+  expires       DateTime
+}
+
+model AnotherDummy {
+  id            String    @id @default(cuid())
+  image         String
+  img           String
+}

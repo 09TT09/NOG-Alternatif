@@ -5,7 +5,9 @@ import {
     getReadURLFor,
     getEditURLFor,
     getCreateURLFor,
-    getDeleteURLFor
+    getDeleteURLFor,
+    getListUrlFor,
+    getModelFromUrl,
 } from './routesHelpers';
 import {
     getModelDefinition,
@@ -19,6 +21,8 @@ export {
     getEditURLFor,
     getCreateURLFor,
     getDeleteURLFor,
+    getListUrlFor,
+    getModelFromUrl,
     getModelDefinition,
     getModelProperties,
     readJsonSchema,

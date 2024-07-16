@@ -14,8 +14,17 @@ export function getEditURLFor (model: string, id: number) {
 
 export function getCreateURLFor (model: string) {
     return `${getFrontendBaseURL()}/admin/${model}/create`;
-}
+};
 
 export function getDeleteURLFor (model: string, id: number) {
     return `${getFrontendBaseURL()}/api/${model}/delete/${id}`;
+};
+
+export function getListUrlFor(model: string) {
+    return `${getFrontendBaseURL()}/admin/${model}`;
+};
+
+export function getModelFromUrl(url: string) {
+    const parts = url.split('/');
+    return `${parts[parts.length - 2]}/${parts[parts.length - 1]}`;
 };

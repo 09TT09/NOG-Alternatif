@@ -146,6 +146,41 @@
           "format": "date-time"
         }
       }
+    },
+    "DummyModel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "age": {
+          "type": "integer"
+        },
+        "expires": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "AnotherDummy": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "img": {
+          "type": "string"
+        }
+      }
     }
   },
   "type": "object",
@@ -161,6 +196,12 @@
     },
     "verificationToken": {
       "$ref": "#/definitions/VerificationToken"
+    },
+    "dummyModel": {
+      "$ref": "#/definitions/DummyModel"
+    },
+    "anotherDummy": {
+      "$ref": "#/definitions/AnotherDummy"
     }
   }
 }

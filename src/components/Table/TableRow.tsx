@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getEditURLFor, getReadURLFor, } from "../../utils";
 import { TableRowProps } from './Table.interfaces';
 
-export const TableRow: React.FC<TableRowProps> = ({ item, modelProperties, tableName }) => {
+export const TableRow: React.FC<TableRowProps> = ({ item, modelProperties, tableName, headers }) => {
     const handleDelete = (id: string) => async () => {
         if (window.confirm("Are you sure you want to delete this item?")) {
             try {
@@ -29,14 +29,25 @@ export const TableRow: React.FC<TableRowProps> = ({ item, modelProperties, table
 
     return (
         <tr>
-            {modelProperties.map(key => (
+            {modelProperties.map((key, index) => (
                     <td
                         key={`${item.id}-${key}`}
                         className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center"
                         style={{ width: columnWidth }}
 
                     >
-                        {item[key]}
+                        {/* si la string "image" ou "img" est dans un header, on affiche l'image*/}
+                        {headers[index].toLowerCase().includes('image') || headers[index].toLowerCase().includes('img') ? (
+                            <img
+                                src={item[key]}
+                                alt={headers[index]}
+                                className="h-10 w-10 rounded-full"
+                            />
+                        ) : (
+                            item[key]
+                        )}
+
+                  
                     </td>
                 ))}
             <td

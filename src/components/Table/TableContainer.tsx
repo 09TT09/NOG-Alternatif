@@ -14,6 +14,7 @@ export const TableContainer: React.FC<TableContainerProps> = ({ data, tableName,
                     key={item.id}
                     item={item}
                     tableName={tableName}
+                    headers={Object.keys(modelEntity)}
                     modelProperties={Object.keys(modelEntity)}
                 />
             ))}

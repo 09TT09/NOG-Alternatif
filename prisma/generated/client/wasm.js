@@ -156,6 +156,19 @@ exports.Prisma.VerificationTokenScalarFieldEnum = {
   expires: 'expires'
 };
 
+exports.Prisma.DummyModelScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  age: 'age',
+  expires: 'expires'
+};
+
+exports.Prisma.AnotherDummyScalarFieldEnum = {
+  id: 'id',
+  image: 'image',
+  img: 'img'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -171,7 +184,9 @@ exports.Prisma.ModelName = {
   Account: 'Account',
   Session: 'Session',
   User: 'User',
-  VerificationToken: 'VerificationToken'
+  VerificationToken: 'VerificationToken',
+  DummyModel: 'DummyModel',
+  AnotherDummy: 'AnotherDummy'
 };
 
 /**
