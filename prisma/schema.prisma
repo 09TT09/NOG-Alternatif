@@ -77,3 +77,9 @@ model AnotherDummy {
   image         String
   img           String
 }
+
+model Thirddummy {
+  id            String    @id @default(cuid())
+  image         String
+  img           String
+}

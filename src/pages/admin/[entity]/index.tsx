@@ -59,7 +59,7 @@ export async function getServerSideProps(params: ServerSideProps) {
   const tableName = arrEntity.join('');
 
   // Schema
-  console.log({fs, modelName})
+  //console.log({fs, modelName})
   const modelEntity = await getModelDefinition(fs, modelName);
   
 

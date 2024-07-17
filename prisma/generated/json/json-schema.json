@@ -181,6 +181,20 @@
           "type": "string"
         }
       }
+    },
+    "Thirddummy": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "img": {
+          "type": "string"
+        }
+      }
     }
   },
   "type": "object",
@@ -202,6 +216,9 @@
     },
     "anotherDummy": {
       "$ref": "#/definitions/AnotherDummy"
+    },
+    "thirddummy": {
+      "$ref": "#/definitions/Thirddummy"
     }
   }
 }

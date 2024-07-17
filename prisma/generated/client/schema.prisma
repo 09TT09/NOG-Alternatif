@@ -71,7 +71,14 @@ model DummyModel {
   age           Int
   expires       DateTime
 }
+
 model AnotherDummy {
+  id            String    @id @default(cuid())
+  image         String
+  img           String
+}
+
+model Thirddummy {
   id            String    @id @default(cuid())
   image         String
   img           String

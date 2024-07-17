@@ -169,6 +169,12 @@ exports.Prisma.AnotherDummyScalarFieldEnum = {
   img: 'img'
 };
 
+exports.Prisma.ThirddummyScalarFieldEnum = {
+  id: 'id',
+  image: 'image',
+  img: 'img'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -186,7 +192,8 @@ exports.Prisma.ModelName = {
   User: 'User',
   VerificationToken: 'VerificationToken',
   DummyModel: 'DummyModel',
-  AnotherDummy: 'AnotherDummy'
+  AnotherDummy: 'AnotherDummy',
+  Thirddummy: 'Thirddummy'
 };
 
 /**

@@ -16,10 +16,10 @@ import { modelExclusionArray } from "@/src/utils/modelsExclusion";
 const Navbar = () => {
   const { data: session } = useSession();
   const modelsNames = Object.values(Prisma.ModelName);
-  let updatedModelsNames: string[] = modelsNames.filter(
+  let updatedModelsNames = modelsNames.filter(
     (modelName) => !modelExclusionArray.some((exclusion) => exclusion.excludedModelName === modelName)
-  );
-    
+  ).map(modelName => modelName + 's');
+
   return (
     <div className="flex flex-col w-64 p-2 bg-gray-800">
       <div className="flex items-center px-1 w-full h-8 gap-x-1 mb-1 rounded border border-solid border-gray-500">

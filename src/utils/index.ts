@@ -26,5 +26,4 @@ export {
     getModelDefinition,
     getModelProperties,
     readJsonSchema,
-    
 };

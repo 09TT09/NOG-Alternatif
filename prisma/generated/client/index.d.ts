@@ -43,6 +43,11 @@ export type DummyModel = $Result.DefaultSelection<Prisma.$DummyModelPayload>
  * 
  */
 export type AnotherDummy = $Result.DefaultSelection<Prisma.$AnotherDummyPayload>
+/**
+ * Model Thirddummy
+ * 
+ */
+export type Thirddummy = $Result.DefaultSelection<Prisma.$ThirddummyPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -225,6 +230,16 @@ export class PrismaClient<
     * ```
     */
   get anotherDummy(): Prisma.AnotherDummyDelegate<ExtArgs>;
+
+  /**
+   * `prisma.thirddummy`: Exposes CRUD operations for the **Thirddummy** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Thirddummies
+    * const thirddummies = await prisma.thirddummy.findMany()
+    * ```
+    */
+  get thirddummy(): Prisma.ThirddummyDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -700,7 +715,8 @@ export namespace Prisma {
     User: 'User',
     VerificationToken: 'VerificationToken',
     DummyModel: 'DummyModel',
-    AnotherDummy: 'AnotherDummy'
+    AnotherDummy: 'AnotherDummy',
+    Thirddummy: 'Thirddummy'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -717,7 +733,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'account' | 'session' | 'user' | 'verificationToken' | 'dummyModel' | 'anotherDummy'
+      modelProps: 'account' | 'session' | 'user' | 'verificationToken' | 'dummyModel' | 'anotherDummy' | 'thirddummy'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -1114,6 +1130,72 @@ export namespace Prisma {
           count: {
             args: Prisma.AnotherDummyCountArgs<ExtArgs>,
             result: $Utils.Optional<AnotherDummyCountAggregateOutputType> | number
+          }
+        }
+      }
+      Thirddummy: {
+        payload: Prisma.$ThirddummyPayload<ExtArgs>
+        fields: Prisma.ThirddummyFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ThirddummyFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ThirddummyPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ThirddummyFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ThirddummyPayload>
+          }
+          findFirst: {
+            args: Prisma.ThirddummyFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ThirddummyPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ThirddummyFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ThirddummyPayload>
+          }
+          findMany: {
+            args: Prisma.ThirddummyFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ThirddummyPayload>[]
+          }
+          create: {
+            args: Prisma.ThirddummyCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ThirddummyPayload>
+          }
+          createMany: {
+            args: Prisma.ThirddummyCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.ThirddummyDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ThirddummyPayload>
+          }
+          update: {
+            args: Prisma.ThirddummyUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ThirddummyPayload>
+          }
+          deleteMany: {
+            args: Prisma.ThirddummyDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ThirddummyUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.ThirddummyUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ThirddummyPayload>
+          }
+          aggregate: {
+            args: Prisma.ThirddummyAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateThirddummy>
+          }
+          groupBy: {
+            args: Prisma.ThirddummyGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<ThirddummyGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ThirddummyCountArgs<ExtArgs>,
+            result: $Utils.Optional<ThirddummyCountAggregateOutputType> | number
           }
         }
       }
@@ -6823,6 +6905,854 @@ export namespace Prisma {
 
 
   /**
+   * Model Thirddummy
+   */
+
+  export type AggregateThirddummy = {
+    _count: ThirddummyCountAggregateOutputType | null
+    _min: ThirddummyMinAggregateOutputType | null
+    _max: ThirddummyMaxAggregateOutputType | null
+  }
+
+  export type ThirddummyMinAggregateOutputType = {
+    id: string | null
+    image: string | null
+    img: string | null
+  }
+
+  export type ThirddummyMaxAggregateOutputType = {
+    id: string | null
+    image: string | null
+    img: string | null
+  }
+
+  export type ThirddummyCountAggregateOutputType = {
+    id: number
+    image: number
+    img: number
+    _all: number
+  }
+
+
+  export type ThirddummyMinAggregateInputType = {
+    id?: true
+    image?: true
+    img?: true
+  }
+
+  export type ThirddummyMaxAggregateInputType = {
+    id?: true
+    image?: true
+    img?: true
+  }
+
+  export type ThirddummyCountAggregateInputType = {
+    id?: true
+    image?: true
+    img?: true
+    _all?: true
+  }
+
+  export type ThirddummyAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Thirddummy to aggregate.
+     */
+    where?: ThirddummyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Thirddummies to fetch.
+     */
+    orderBy?: ThirddummyOrderByWithRelationInput | ThirddummyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ThirddummyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Thirddummies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Thirddummies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Thirddummies
+    **/
+    _count?: true | ThirddummyCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ThirddummyMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ThirddummyMaxAggregateInputType
+  }
+
+  export type GetThirddummyAggregateType<T extends ThirddummyAggregateArgs> = {
+        [P in keyof T & keyof AggregateThirddummy]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateThirddummy[P]>
+      : GetScalarType<T[P], AggregateThirddummy[P]>
+  }
+
+
+
+
+  export type ThirddummyGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ThirddummyWhereInput
+    orderBy?: ThirddummyOrderByWithAggregationInput | ThirddummyOrderByWithAggregationInput[]
+    by: ThirddummyScalarFieldEnum[] | ThirddummyScalarFieldEnum
+    having?: ThirddummyScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ThirddummyCountAggregateInputType | true
+    _min?: ThirddummyMinAggregateInputType
+    _max?: ThirddummyMaxAggregateInputType
+  }
+
+  export type ThirddummyGroupByOutputType = {
+    id: string
+    image: string
+    img: string
+    _count: ThirddummyCountAggregateOutputType | null
+    _min: ThirddummyMinAggregateOutputType | null
+    _max: ThirddummyMaxAggregateOutputType | null
+  }
+
+  type GetThirddummyGroupByPayload<T extends ThirddummyGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ThirddummyGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ThirddummyGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ThirddummyGroupByOutputType[P]>
+            : GetScalarType<T[P], ThirddummyGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ThirddummySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    image?: boolean
+    img?: boolean
+  }, ExtArgs["result"]["thirddummy"]>
+
+  export type ThirddummySelectScalar = {
+    id?: boolean
+    image?: boolean
+    img?: boolean
+  }
+
+
+  export type $ThirddummyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Thirddummy"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      image: string
+      img: string
+    }, ExtArgs["result"]["thirddummy"]>
+    composites: {}
+  }
+
+
+  type ThirddummyGetPayload<S extends boolean | null | undefined | ThirddummyDefaultArgs> = $Result.GetResult<Prisma.$ThirddummyPayload, S>
+
+  type ThirddummyCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<ThirddummyFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: ThirddummyCountAggregateInputType | true
+    }
+
+  export interface ThirddummyDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Thirddummy'], meta: { name: 'Thirddummy' } }
+    /**
+     * Find zero or one Thirddummy that matches the filter.
+     * @param {ThirddummyFindUniqueArgs} args - Arguments to find a Thirddummy
+     * @example
+     * // Get one Thirddummy
+     * const thirddummy = await prisma.thirddummy.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends ThirddummyFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, ThirddummyFindUniqueArgs<ExtArgs>>
+    ): Prisma__ThirddummyClient<$Result.GetResult<Prisma.$ThirddummyPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one Thirddummy that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {ThirddummyFindUniqueOrThrowArgs} args - Arguments to find a Thirddummy
+     * @example
+     * // Get one Thirddummy
+     * const thirddummy = await prisma.thirddummy.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends ThirddummyFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, ThirddummyFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__ThirddummyClient<$Result.GetResult<Prisma.$ThirddummyPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first Thirddummy that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ThirddummyFindFirstArgs} args - Arguments to find a Thirddummy
+     * @example
+     * // Get one Thirddummy
+     * const thirddummy = await prisma.thirddummy.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends ThirddummyFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, ThirddummyFindFirstArgs<ExtArgs>>
+    ): Prisma__ThirddummyClient<$Result.GetResult<Prisma.$ThirddummyPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first Thirddummy that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ThirddummyFindFirstOrThrowArgs} args - Arguments to find a Thirddummy
+     * @example
+     * // Get one Thirddummy
+     * const thirddummy = await prisma.thirddummy.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends ThirddummyFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, ThirddummyFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__ThirddummyClient<$Result.GetResult<Prisma.$ThirddummyPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more Thirddummies that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ThirddummyFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Thirddummies
+     * const thirddummies = await prisma.thirddummy.findMany()
+     * 
+     * // Get first 10 Thirddummies
+     * const thirddummies = await prisma.thirddummy.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const thirddummyWithIdOnly = await prisma.thirddummy.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends ThirddummyFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ThirddummyFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ThirddummyPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a Thirddummy.
+     * @param {ThirddummyCreateArgs} args - Arguments to create a Thirddummy.
+     * @example
+     * // Create one Thirddummy
+     * const Thirddummy = await prisma.thirddummy.create({
+     *   data: {
+     *     // ... data to create a Thirddummy
+     *   }
+     * })
+     * 
+    **/
+    create<T extends ThirddummyCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, ThirddummyCreateArgs<ExtArgs>>
+    ): Prisma__ThirddummyClient<$Result.GetResult<Prisma.$ThirddummyPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many Thirddummies.
+     *     @param {ThirddummyCreateManyArgs} args - Arguments to create many Thirddummies.
+     *     @example
+     *     // Create many Thirddummies
+     *     const thirddummy = await prisma.thirddummy.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends ThirddummyCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ThirddummyCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Thirddummy.
+     * @param {ThirddummyDeleteArgs} args - Arguments to delete one Thirddummy.
+     * @example
+     * // Delete one Thirddummy
+     * const Thirddummy = await prisma.thirddummy.delete({
+     *   where: {
+     *     // ... filter to delete one Thirddummy
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends ThirddummyDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, ThirddummyDeleteArgs<ExtArgs>>
+    ): Prisma__ThirddummyClient<$Result.GetResult<Prisma.$ThirddummyPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one Thirddummy.
+     * @param {ThirddummyUpdateArgs} args - Arguments to update one Thirddummy.
+     * @example
+     * // Update one Thirddummy
+     * const thirddummy = await prisma.thirddummy.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends ThirddummyUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, ThirddummyUpdateArgs<ExtArgs>>
+    ): Prisma__ThirddummyClient<$Result.GetResult<Prisma.$ThirddummyPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more Thirddummies.
+     * @param {ThirddummyDeleteManyArgs} args - Arguments to filter Thirddummies to delete.
+     * @example
+     * // Delete a few Thirddummies
+     * const { count } = await prisma.thirddummy.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends ThirddummyDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ThirddummyDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Thirddummies.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ThirddummyUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Thirddummies
+     * const thirddummy = await prisma.thirddummy.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends ThirddummyUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, ThirddummyUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Thirddummy.
+     * @param {ThirddummyUpsertArgs} args - Arguments to update or create a Thirddummy.
+     * @example
+     * // Update or create a Thirddummy
+     * const thirddummy = await prisma.thirddummy.upsert({
+     *   create: {
+     *     // ... data to create a Thirddummy
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Thirddummy we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends ThirddummyUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, ThirddummyUpsertArgs<ExtArgs>>
+    ): Prisma__ThirddummyClient<$Result.GetResult<Prisma.$ThirddummyPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of Thirddummies.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ThirddummyCountArgs} args - Arguments to filter Thirddummies to count.
+     * @example
+     * // Count the number of Thirddummies
+     * const count = await prisma.thirddummy.count({
+     *   where: {
+     *     // ... the filter for the Thirddummies we want to count
+     *   }
+     * })
+    **/
+    count<T extends ThirddummyCountArgs>(
+      args?: Subset<T, ThirddummyCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ThirddummyCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Thirddummy.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ThirddummyAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ThirddummyAggregateArgs>(args: Subset<T, ThirddummyAggregateArgs>): Prisma.PrismaPromise<GetThirddummyAggregateType<T>>
+
+    /**
+     * Group by Thirddummy.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ThirddummyGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ThirddummyGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ThirddummyGroupByArgs['orderBy'] }
+        : { orderBy?: ThirddummyGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ThirddummyGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetThirddummyGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Thirddummy model
+   */
+  readonly fields: ThirddummyFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Thirddummy.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ThirddummyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the Thirddummy model
+   */ 
+  interface ThirddummyFieldRefs {
+    readonly id: FieldRef<"Thirddummy", 'String'>
+    readonly image: FieldRef<"Thirddummy", 'String'>
+    readonly img: FieldRef<"Thirddummy", 'String'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * Thirddummy findUnique
+   */
+  export type ThirddummyFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Thirddummy
+     */
+    select?: ThirddummySelect<ExtArgs> | null
+    /**
+     * Filter, which Thirddummy to fetch.
+     */
+    where: ThirddummyWhereUniqueInput
+  }
+
+
+  /**
+   * Thirddummy findUniqueOrThrow
+   */
+  export type ThirddummyFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Thirddummy
+     */
+    select?: ThirddummySelect<ExtArgs> | null
+    /**
+     * Filter, which Thirddummy to fetch.
+     */
+    where: ThirddummyWhereUniqueInput
+  }
+
+
+  /**
+   * Thirddummy findFirst
+   */
+  export type ThirddummyFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Thirddummy
+     */
+    select?: ThirddummySelect<ExtArgs> | null
+    /**
+     * Filter, which Thirddummy to fetch.
+     */
+    where?: ThirddummyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Thirddummies to fetch.
+     */
+    orderBy?: ThirddummyOrderByWithRelationInput | ThirddummyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Thirddummies.
+     */
+    cursor?: ThirddummyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Thirddummies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Thirddummies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Thirddummies.
+     */
+    distinct?: ThirddummyScalarFieldEnum | ThirddummyScalarFieldEnum[]
+  }
+
+
+  /**
+   * Thirddummy findFirstOrThrow
+   */
+  export type ThirddummyFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Thirddummy
+     */
+    select?: ThirddummySelect<ExtArgs> | null
+    /**
+     * Filter, which Thirddummy to fetch.
+     */
+    where?: ThirddummyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Thirddummies to fetch.
+     */
+    orderBy?: ThirddummyOrderByWithRelationInput | ThirddummyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Thirddummies.
+     */
+    cursor?: ThirddummyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Thirddummies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Thirddummies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Thirddummies.
+     */
+    distinct?: ThirddummyScalarFieldEnum | ThirddummyScalarFieldEnum[]
+  }
+
+
+  /**
+   * Thirddummy findMany
+   */
+  export type ThirddummyFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Thirddummy
+     */
+    select?: ThirddummySelect<ExtArgs> | null
+    /**
+     * Filter, which Thirddummies to fetch.
+     */
+    where?: ThirddummyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Thirddummies to fetch.
+     */
+    orderBy?: ThirddummyOrderByWithRelationInput | ThirddummyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Thirddummies.
+     */
+    cursor?: ThirddummyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Thirddummies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Thirddummies.
+     */
+    skip?: number
+    distinct?: ThirddummyScalarFieldEnum | ThirddummyScalarFieldEnum[]
+  }
+
+
+  /**
+   * Thirddummy create
+   */
+  export type ThirddummyCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Thirddummy
+     */
+    select?: ThirddummySelect<ExtArgs> | null
+    /**
+     * The data needed to create a Thirddummy.
+     */
+    data: XOR<ThirddummyCreateInput, ThirddummyUncheckedCreateInput>
+  }
+
+
+  /**
+   * Thirddummy createMany
+   */
+  export type ThirddummyCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Thirddummies.
+     */
+    data: ThirddummyCreateManyInput | ThirddummyCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * Thirddummy update
+   */
+  export type ThirddummyUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Thirddummy
+     */
+    select?: ThirddummySelect<ExtArgs> | null
+    /**
+     * The data needed to update a Thirddummy.
+     */
+    data: XOR<ThirddummyUpdateInput, ThirddummyUncheckedUpdateInput>
+    /**
+     * Choose, which Thirddummy to update.
+     */
+    where: ThirddummyWhereUniqueInput
+  }
+
+
+  /**
+   * Thirddummy updateMany
+   */
+  export type ThirddummyUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Thirddummies.
+     */
+    data: XOR<ThirddummyUpdateManyMutationInput, ThirddummyUncheckedUpdateManyInput>
+    /**
+     * Filter which Thirddummies to update
+     */
+    where?: ThirddummyWhereInput
+  }
+
+
+  /**
+   * Thirddummy upsert
+   */
+  export type ThirddummyUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Thirddummy
+     */
+    select?: ThirddummySelect<ExtArgs> | null
+    /**
+     * The filter to search for the Thirddummy to update in case it exists.
+     */
+    where: ThirddummyWhereUniqueInput
+    /**
+     * In case the Thirddummy found by the `where` argument doesn't exist, create a new Thirddummy with this data.
+     */
+    create: XOR<ThirddummyCreateInput, ThirddummyUncheckedCreateInput>
+    /**
+     * In case the Thirddummy was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ThirddummyUpdateInput, ThirddummyUncheckedUpdateInput>
+  }
+
+
+  /**
+   * Thirddummy delete
+   */
+  export type ThirddummyDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Thirddummy
+     */
+    select?: ThirddummySelect<ExtArgs> | null
+    /**
+     * Filter which Thirddummy to delete.
+     */
+    where: ThirddummyWhereUniqueInput
+  }
+
+
+  /**
+   * Thirddummy deleteMany
+   */
+  export type ThirddummyDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Thirddummies to delete
+     */
+    where?: ThirddummyWhereInput
+  }
+
+
+  /**
+   * Thirddummy without action
+   */
+  export type ThirddummyDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Thirddummy
+     */
+    select?: ThirddummySelect<ExtArgs> | null
+  }
+
+
+
+  /**
    * Enums
    */
 
@@ -6902,6 +7832,15 @@ export namespace Prisma {
   };
 
   export type AnotherDummyScalarFieldEnum = (typeof AnotherDummyScalarFieldEnum)[keyof typeof AnotherDummyScalarFieldEnum]
+
+
+  export const ThirddummyScalarFieldEnum: {
+    id: 'id',
+    image: 'image',
+    img: 'img'
+  };
+
+  export type ThirddummyScalarFieldEnum = (typeof ThirddummyScalarFieldEnum)[keyof typeof ThirddummyScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -7296,6 +8235,48 @@ export namespace Prisma {
     img?: StringWithAggregatesFilter<"AnotherDummy"> | string
   }
 
+  export type ThirddummyWhereInput = {
+    AND?: ThirddummyWhereInput | ThirddummyWhereInput[]
+    OR?: ThirddummyWhereInput[]
+    NOT?: ThirddummyWhereInput | ThirddummyWhereInput[]
+    id?: StringFilter<"Thirddummy"> | string
+    image?: StringFilter<"Thirddummy"> | string
+    img?: StringFilter<"Thirddummy"> | string
+  }
+
+  export type ThirddummyOrderByWithRelationInput = {
+    id?: SortOrder
+    image?: SortOrder
+    img?: SortOrder
+  }
+
+  export type ThirddummyWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ThirddummyWhereInput | ThirddummyWhereInput[]
+    OR?: ThirddummyWhereInput[]
+    NOT?: ThirddummyWhereInput | ThirddummyWhereInput[]
+    image?: StringFilter<"Thirddummy"> | string
+    img?: StringFilter<"Thirddummy"> | string
+  }, "id">
+
+  export type ThirddummyOrderByWithAggregationInput = {
+    id?: SortOrder
+    image?: SortOrder
+    img?: SortOrder
+    _count?: ThirddummyCountOrderByAggregateInput
+    _max?: ThirddummyMaxOrderByAggregateInput
+    _min?: ThirddummyMinOrderByAggregateInput
+  }
+
+  export type ThirddummyScalarWhereWithAggregatesInput = {
+    AND?: ThirddummyScalarWhereWithAggregatesInput | ThirddummyScalarWhereWithAggregatesInput[]
+    OR?: ThirddummyScalarWhereWithAggregatesInput[]
+    NOT?: ThirddummyScalarWhereWithAggregatesInput | ThirddummyScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Thirddummy"> | string
+    image?: StringWithAggregatesFilter<"Thirddummy"> | string
+    img?: StringWithAggregatesFilter<"Thirddummy"> | string
+  }
+
   export type AccountCreateInput = {
     id?: string
     type: string
@@ -7647,6 +8628,48 @@ export namespace Prisma {
   }
 
   export type AnotherDummyUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    img?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ThirddummyCreateInput = {
+    id?: string
+    image: string
+    img: string
+  }
+
+  export type ThirddummyUncheckedCreateInput = {
+    id?: string
+    image: string
+    img: string
+  }
+
+  export type ThirddummyUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    img?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ThirddummyUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    img?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ThirddummyCreateManyInput = {
+    id?: string
+    image: string
+    img: string
+  }
+
+  export type ThirddummyUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    img?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ThirddummyUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     image?: StringFieldUpdateOperationsInput | string
     img?: StringFieldUpdateOperationsInput | string
@@ -8019,6 +9042,24 @@ export namespace Prisma {
   }
 
   export type AnotherDummyMinOrderByAggregateInput = {
+    id?: SortOrder
+    image?: SortOrder
+    img?: SortOrder
+  }
+
+  export type ThirddummyCountOrderByAggregateInput = {
+    id?: SortOrder
+    image?: SortOrder
+    img?: SortOrder
+  }
+
+  export type ThirddummyMaxOrderByAggregateInput = {
+    id?: SortOrder
+    image?: SortOrder
+    img?: SortOrder
+  }
+
+  export type ThirddummyMinOrderByAggregateInput = {
     id?: SortOrder
     image?: SortOrder
     img?: SortOrder
@@ -8701,6 +9742,10 @@ export namespace Prisma {
      * @deprecated Use AnotherDummyDefaultArgs instead
      */
     export type AnotherDummyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = AnotherDummyDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use ThirddummyDefaultArgs instead
+     */
+    export type ThirddummyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ThirddummyDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

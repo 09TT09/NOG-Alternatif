@@ -3,7 +3,7 @@ import { readJsonSchema } from "../utils";
 
 export async function getModelDefinition(fs: any, modelName: string): Promise<GenericEntityFront> {
     const jsonModelData = await readJsonSchema(fs);
-    console.log({jsonModelData, modelName});
+    //console.log({jsonModelData, modelName});
 
     if (modelName in jsonModelData.definitions) {
         const modelDefinition = jsonModelData.definitions[modelName];
