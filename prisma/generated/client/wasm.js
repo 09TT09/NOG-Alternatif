@@ -156,23 +156,17 @@ exports.Prisma.VerificationTokenScalarFieldEnum = {
   expires: 'expires'
 };
 
-exports.Prisma.DummyModelScalarFieldEnum = {
+exports.Prisma.GuestroomScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  age: 'age',
-  expires: 'expires'
-};
-
-exports.Prisma.AnotherDummyScalarFieldEnum = {
-  id: 'id',
+  description: 'description',
   image: 'image',
-  img: 'img'
-};
-
-exports.Prisma.ThirddummyScalarFieldEnum = {
-  id: 'id',
-  image: 'image',
-  img: 'img'
+  location: 'location',
+  price: 'price',
+  beds: 'beds',
+  bedrooms: 'bedrooms',
+  bathrooms: 'bathrooms',
+  maxGuests: 'maxGuests'
 };
 
 exports.Prisma.SortOrder = {
@@ -191,9 +185,7 @@ exports.Prisma.ModelName = {
   Session: 'Session',
   User: 'User',
   VerificationToken: 'VerificationToken',
-  DummyModel: 'DummyModel',
-  AnotherDummy: 'AnotherDummy',
-  Thirddummy: 'Thirddummy'
+  Guestroom: 'Guestroom'
 };
 
 /**

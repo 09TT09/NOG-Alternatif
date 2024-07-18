@@ -55,12 +55,12 @@ export const TableRow: React.FC<TableRowProps> = ({ item, modelProperties, table
             >
                 <div className={`text-center`}>
 
-                <Link href={getReadURLFor(tableName + 's', item.id)}>View</Link>
+                <Link  className="text-blue-950" href={getReadURLFor(tableName + 's', item.id)}>View</Link>
                 {' | '}
-                <Link href={getEditURLFor(tableName + 's', item.id)}>Modify</Link>
+                <Link  className="text-blue-950" href={getEditURLFor(tableName + 's', item.id)}>Modify</Link>
                 {' | '}
                 {/*use handler to delete on button*/}
-                <button onClick={handleDelete(item.id)}>Delete</button>
+                <button className="text-blue-950" onClick={handleDelete(item.id)}>Delete</button>
                 </div>
             </td>
         </tr>

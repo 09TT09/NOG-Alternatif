@@ -21,7 +21,7 @@ const Navbar = () => {
   ).map(modelName => modelName + 's');
 
   return (
-    <div className="flex flex-col w-64 p-2 bg-gray-800">
+    <div className="h-screen flex flex-col w-64 p-2 bg-gray-800">
       <div className="flex items-center px-1 w-full h-8 gap-x-1 mb-1 rounded border border-solid border-gray-500">
         <NavbarButton borderColor="border-blue-500" borderHoverColor="border-blue-600" icon={ChevronUp} />
         <NavbarButton borderColor="border-red-500" borderHoverColor="border-blue-600" icon={ChevronDown} />

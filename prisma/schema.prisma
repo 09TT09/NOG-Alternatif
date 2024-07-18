@@ -1,41 +1,35 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+generator jsonSchema {
+  provider = "prisma-json-schema-generator"
+  output   = "./generated/json"
+}
 
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
-generator client {
-  provider = "prisma-client-js"
-  output   = "./generated/client" // This is important for next-office-generator
-}
-
-generator jsonSchema {
-  provider = "prisma-json-schema-generator" // This is important for next-office-generator
-  output   = "./generated/json" // This is important for next-office-generator
-}
-
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  @db.Text
-  access_token       String?  @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  @db.Text
-  session_state      String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
+  @@index([userId], map: "Account_userId_fkey")
 }
 
 model Session {
@@ -44,6 +38,8 @@ model Session {
   userId       String
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId], map: "Session_userId_fkey")
 }
 
 model User {
@@ -57,6 +53,9 @@ model User {
   sessions      Session[]
 }
 
+
+
+
 model VerificationToken {
   identifier String
   token      String   @unique
@@ -64,22 +63,15 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
-
-model DummyModel {
-  id            String    @id @default(cuid())
-  name          String?
-  age           Int
-  expires       DateTime
-}
-
-model AnotherDummy {
-  id            String    @id @default(cuid())
-  image         String
-  img           String
-}
-
-model Thirddummy {
-  id            String    @id @default(cuid())
-  image         String
-  img           String
+model Guestroom {
+  id  Int @id @default(autoincrement())
+  name        String
+  description String?
+  image       String?
+  location    String
+  price       Int
+  beds        Int
+  bedrooms    Int
+  bathrooms   Int
+  maxGuests   Int
 }

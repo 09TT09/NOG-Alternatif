@@ -28,3 +28,10 @@ export function getModelFromUrl(url: string) {
     const parts = url.split('/');
     return `${parts[parts.length - 2]}/${parts[parts.length - 1]}`;
 };
+export function getModelFromUrlWithIteration(url: string, iteration: number) {
+    const parts = url.split('/');
+    if (iteration > parts.length) {
+        iteration = parts.length;
+    }
+    return parts.slice(-iteration).join('/');
+};

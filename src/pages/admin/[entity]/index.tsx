@@ -6,6 +6,7 @@ import prisma from "@/prisma/prisma";
 import { TableContainer } from "../../../components/Table/TableContainer";
 import { GenericPageProps } from "../../../types/GenericProp";
 import { getModelDefinition, capitalizeAndRemoveLast, getCreateURLFor } from "../../../utils";
+import {EntityLayout} from "@/src/pages/admin/[entity]/_layout";
 
 type IndexOptions = {};
 
@@ -23,22 +24,29 @@ const GenericPage: React.FC<GenericPageProps> = ({
       <Head>
         <title>{pageTitle}</title>
       </Head>
-      <div className="container mx-auto">
+      <EntityLayout>
+
+      <div className="container mx-auto flex flex-col">
         <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
           <TableContainer
               data={data}
               tableName={tableName}
               entityPath={entityConfig.entityName}
               modelEntity={modelEntity}/>
+          <div className={'pb-8 flex justify-end mr-8'}>
+            <Link
+                className="px-6 py-2 rounded-md text-white transition duration-200 ease-in-out bg-blue-600 hover:bg-blue-700"
+                href={getCreateURLFor(entityConfig.entityName)}
+            >
+              Create a {entityConfig.displayNameProperty}
+            </Link>
+          </div>
         </div>
 
-        <Link
-          className="px-6 py-2 rounded-md text-white transition duration-200 ease-in-out bg-blue-600 hover:bg-blue-700"
-          href={getCreateURLFor(entityConfig.entityName)}
-        >
-          Create a {entityConfig.entityName}
-        </Link>
+
       </div>
+
+      </EntityLayout>
     </>
   );
 };

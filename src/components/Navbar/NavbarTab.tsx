@@ -5,7 +5,9 @@ import { TabProps } from '@/src/components/Navbar/Navbar.interfaces';
 import ChevronUp from "@/public/assets/icon-chevron-up.svg";
 import ChevronDown from "@/public/assets/icon-chevron-down.svg";
 import { getListUrlFor } from "@/src/utils";
-import { getModelFromUrl } from "@/src/utils"; // Import the new utility function
+import { getModelFromUrl } from "@/src/utils";
+import {getModelFromUrlWithIteration} from "@/src/utils/routesHelpers";
+import Link from "next/link"; // Import the new utility function
 
 const NavbarTab = ({ title, imageSrc, listItems, lastItemColor }: TabProps) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -24,16 +26,20 @@ const NavbarTab = ({ title, imageSrc, listItems, lastItemColor }: TabProps) => {
             {isOpen && (
                 <ul className="pl-4 mb-2 text-sm">
                     {listItems.map((item, index) => {
-                        const url = getListUrlFor(item); // Get the URL for the item
-                        const model = getModelFromUrl(url.toLowerCase()); // Get the model from the URL
-                        
+                        const url = getListUrlFor(item);
+
+
+                        const model = getModelFromUrlWithIteration(url.toLowerCase(), 0);
+
                         return (
+                            <>  
                             <li key={index} className={`h-7 cursor-pointer duration-300
                                 ${lastItemColor !== null && lastItemColor !== undefined && index === listItems.length - 1 ? 'hover:text-red-700' : 'hover:text-blue-500'}
                                 ${index === listItems.length - 1 ? lastItemColor : ''}
                             `} onClick={item === "Logout" ? () => signOut({ callbackUrl: 'http://localhost:3000/admin' }) : undefined} >
-                                <a href={model}>{item}</a>
+                                <Link href={model}>{item}</Link>
                             </li>
+                            </>
                         );
                     })}
                 </ul>

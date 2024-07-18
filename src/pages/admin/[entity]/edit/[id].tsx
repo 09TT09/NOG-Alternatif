@@ -37,13 +37,14 @@ const GenericEditPage: NextPage<GenericPageProps> = ({ item, entityName, tableNa
 
     return (
         <>
-            <h1>Edit {entityName}</h1>
-            <form onSubmit={handleSubmit}>
-                {Object.keys(formData).filter(key => !excludedFields.includes(key)).map(key => {
-                    return (
-                        <div key={key}>
-                            <label htmlFor={key}>{key}</label>
+            <h1 className="text-blue-950 text-center text-2xl font-bold mb-4">Mettre à jour {entityName} {item.id}</h1>
+            <div className="m-8">
+                <form onSubmit={handleSubmit} className="space-y-4">
+                    {Object.keys(formData).filter(key => !excludedFields.includes(key)).map(key => (
+                        <div key={key} className="flex flex-col">
+                            <label htmlFor={key} className="mb-1 font-medium text-gray-700">{key}</label>
                             <input
+                                className="p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 id={key}
                                 name={key}
                                 type="text"
@@ -51,25 +52,31 @@ const GenericEditPage: NextPage<GenericPageProps> = ({ item, entityName, tableNa
                                 onChange={handleChange}
                             />
                         </div>
-                    );
-                })}
-                <button type="submit">Mettre à jour</button>
-            </form>
+                    ))}
+                    <button
+                        type="submit"
+                        className="px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                        Mettre à jour
+                    </button>
+                </form>
+            </div>
         </>
+
     );
 };
 
 export default GenericEditPage;
 
 type ServerSideProps = {
-  params: {
-    id: string;
-    entity: string;    
-  }
+    params: {
+        id: string;
+        entity: string;
+    }
 }
 
 export async function getServerSideProps(params: ServerSideProps) {
-    const { id, entity } = params.params;
+    const {id, entity} = params.params;
     // @ts-ignore
     const arrEntity = [...entity];
     arrEntity.pop()
@@ -90,7 +97,7 @@ export async function getServerSideProps(params: ServerSideProps) {
             fieldType = 'integer';
         }
 
-        return { ...acc, [field]: fieldType };
+        return {...acc, [field]: fieldType};
     }, {});
 
     // @ts-ignore

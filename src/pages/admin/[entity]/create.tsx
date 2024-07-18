@@ -4,6 +4,7 @@ import fs from 'fs';
 import { getModelDefinition, capitalizeAndRemoveLast } from '../../../utils';
 import {GenericInputNumber} from "../../../components/Form/GenericInputNumber";
 import {GenericInputText} from "../../../components/Form/GenericInputText";
+import {EntityLayout} from "@/src/pages/admin/[entity]/_layout";
 
 type GenericFormProps = {
   entityName: string;
@@ -70,11 +71,16 @@ const GenericFormPage: React.FC<GenericFormProps> = ({ entityName, tableName, fo
   };
 
   return (
+      <>
       <div className="container mx-auto px-4">
-        <h1 className="text-xl font-semibold mb-4">Create {entityName}</h1>
-        <pre className="bg-gray-800 text-white overflow-x-auto p-4 rounded-lg">
+        {/*entityname - last character*/}
+      <h1 className="text-blue-950 text-center text-2xl font-bold mb-4">Create {entityName.slice(0, -1)}</h1>
+
+        {/*
+         <pre className="bg-gray-800 text-white overflow-x-auto p-4 rounded-lg">
           <code className="language-json">{JSON.stringify(formFieldsTypes, null, 2)}</code>
         </pre>
+        */}
 
         <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
           {formFields.filter(field => formFieldsTypes[field] === 'integer' || formFieldsTypes[field] === 'string').map((field) => (
@@ -92,7 +98,7 @@ const GenericFormPage: React.FC<GenericFormProps> = ({ entityName, tableName, fo
                 {formFieldsTypes[field] === 'string' && (
                     <GenericInputText
                         field={field}
-                        value={formData[field] as string  }
+                        value={formData[field] as string}
                         handleChange={handleChange}
 
                     />
@@ -111,6 +117,7 @@ const GenericFormPage: React.FC<GenericFormProps> = ({ entityName, tableName, fo
           </div>
         </form>
       </div>
+        </>
   );
 };
 

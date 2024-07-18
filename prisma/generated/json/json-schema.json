@@ -147,52 +147,44 @@
         }
       }
     },
-    "DummyModel": {
+    "Guestroom": {
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "integer"
         },
         "name": {
+          "type": "string"
+        },
+        "description": {
           "type": [
             "string",
             "null"
           ]
         },
-        "age": {
+        "image": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "location": {
+          "type": "string"
+        },
+        "price": {
           "type": "integer"
         },
-        "expires": {
-          "type": "string",
-          "format": "date-time"
-        }
-      }
-    },
-    "AnotherDummy": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
+        "beds": {
+          "type": "integer"
         },
-        "image": {
-          "type": "string"
+        "bedrooms": {
+          "type": "integer"
         },
-        "img": {
-          "type": "string"
-        }
-      }
-    },
-    "Thirddummy": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
+        "bathrooms": {
+          "type": "integer"
         },
-        "image": {
-          "type": "string"
-        },
-        "img": {
-          "type": "string"
+        "maxGuests": {
+          "type": "integer"
         }
       }
     }
@@ -211,14 +203,8 @@
     "verificationToken": {
       "$ref": "#/definitions/VerificationToken"
     },
-    "dummyModel": {
-      "$ref": "#/definitions/DummyModel"
-    },
-    "anotherDummy": {
-      "$ref": "#/definitions/AnotherDummy"
-    },
-    "thirddummy": {
-      "$ref": "#/definitions/Thirddummy"
+    "guestroom": {
+      "$ref": "#/definitions/Guestroom"
     }
   }
 }
