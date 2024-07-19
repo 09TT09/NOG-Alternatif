@@ -5,7 +5,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "integer"
         },
         "type": {
           "type": "string"
@@ -67,7 +67,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "integer"
         },
         "sessionToken": {
           "type": "string"
@@ -85,7 +85,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "integer"
         },
         "name": {
           "type": [

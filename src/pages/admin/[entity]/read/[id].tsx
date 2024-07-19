@@ -22,6 +22,9 @@ const GenericDetails: NextPage<GenericPageProps> = ({
     return <div>{entityConfig.entityName} introuvable</div>;
   }
 
+
+
+
   const handleDelete = (id: string) => async () => {
     if (window.confirm("Are you sure you want to delete this item?")) {
       try {
@@ -44,7 +47,13 @@ const GenericDetails: NextPage<GenericPageProps> = ({
     }
   }
 
-
+  const isEditable =  (entityName: string) => {
+    if (entityName === 'user') {
+      return false;
+    } else {
+      return true;
+    }
+  }
   return (
       <>
         <Head>
@@ -80,15 +89,19 @@ const GenericDetails: NextPage<GenericPageProps> = ({
               Edit
             </span>
             </Link>
-            {/* Delete */}
-            <button onClick={handleDelete(item.id)}
-                    className="inline-block px-4 py-2 bg-red-500 text-white font-semibold rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 cursor-pointer"
-            >
-              Delete
-            </button>
+            {/* Delete possible if isEditable */}
+            {isEditable(entityConfig.entityName) && (
+                <span onClick={handleDelete(item.id)} className="inline-block px-4 py-2 bg-red-500 text-white font-semibold rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 cursor-pointer ml-2">
+                  Delete
+                </span>
+            )}
+
+
+
+
             {/* Back */}
             <Link href={`/admin/${entityConfig.entityName}s`}>
-            <span className="inline-block px-4 py-2 bg-gray-500 text-white font-semibold rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 cursor-pointer">
+            <span className="inline-block px-4 py-2 bg-black text-white font-semibold rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 cursor-pointer">
               Back
             </span>
             </Link>

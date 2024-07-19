@@ -20,5 +20,11 @@ export const modelExclusionArray: ExcludingModel[] = [
     {
         type: ExcludingModelType.Config,
         excludedModelName: 'VerificationToken',
-    }
+    },
+    {
+        type: ExcludingModelType.Config,
+        excludedModelName: 'User',
+
+    },
+
 ];
